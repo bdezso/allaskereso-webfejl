@@ -26,8 +26,8 @@ export class ViewerComponent implements OnInit, OnChanges {
     id: '',
     username: '',
     comment: '',
-    date: 0,
-    imageId: this.imageInput?.id
+    jobId:'',
+    date:0
   });
 
   constructor(private fb: FormBuilder,
