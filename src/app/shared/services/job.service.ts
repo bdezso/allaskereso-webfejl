@@ -18,7 +18,9 @@ export class JobService {
   }
 
   getAll() {
-    return this.afs.collection<Job>(this.collectionName).valueChanges();
+    return this.afs.collection<Job>(this.collectionName,ref => {
+      return ref.orderBy('jobCreationTimestamp', 'desc');
+    }).valueChanges();
   }
 
   update(job: Job) {

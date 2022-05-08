@@ -1,6 +1,6 @@
 export interface Job {
-  id: string;
   jobName: string;
+  id: string,
   jobCreatorEmail: string;
   salaryPerMonth: number;
   tasks: string;

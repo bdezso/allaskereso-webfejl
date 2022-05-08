@@ -1,3 +1,4 @@
+import { JobService } from './../../shared/services/job.service';
 import { Component, OnInit } from '@angular/core';
 import { UserCredential } from 'firebase/auth';
 import { User } from './../../shared/models/User';
@@ -12,6 +13,7 @@ import firebase from "firebase/compat/app";
 import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/render3/util';
 import { FirebaseError } from 'firebase/app';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Component({
@@ -28,16 +30,38 @@ export class JobCreatingComponent implements OnInit {
 
 
   constructor(
+    private afs: AngularFirestore,
+    private jobService: JobService,
     private snackBar: MatSnackBar,
     private location: Location, private authService: AuthService, private userService: UserService) { }
 
 
   ngOnInit(): void {
+
   }
 
 
 
   onSubmit(){
+    const salary = this.signUpForm.get('salary')?.value;
+    const tasks = this.signUpForm.get('tasks')?.value;
+    const jobName = this.signUpForm.get('jobName')?.value;
 
+    if(!salary || !tasks || !jobName){
+      this.snackBar.open('Hibás adatok. (A fizetés egész szám lehet és mindent kötelező megadni)',"Bezár");
+      return;
+    }
+
+    this.jobService.create({
+      applicantsEmail:[],
+      jobCreationTimestamp:Date.now(),
+      jobName:jobName,
+      tasks: tasks,
+      salaryPerMonth: Number.parseInt(salary),
+      id: this.afs.createId(),
+      jobCreatorEmail: "dezsobence98@gmail.com"
+    });
+    
+    this.snackBar.open('Sikeresen létrehoztad a hirdetést',"Bezár");
   }
 }
