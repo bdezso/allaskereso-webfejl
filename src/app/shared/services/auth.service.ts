@@ -5,7 +5,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(private auth: AngularFireAuth) { }
 
   login(email: string, password: string) {
