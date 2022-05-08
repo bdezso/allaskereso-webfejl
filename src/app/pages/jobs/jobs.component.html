@@ -1,1 +1,13 @@
-<p>jobs works!</p>
+<div class="main-container">
+  Összesen {{ (jobs | async)?.length ?? 0}} munka van.
+  <br>
+  <br>
+  
+  <div *ngFor="let job of (jobs|async)">
+    <app-job-card [job] = job> </app-job-card>
+  </div>
+</div>
+
+
+
+

@@ -1,3 +1,5 @@
+import { DateFormatPipe } from './shared/pipes/date-format.pipe';
+import { CurrencyFormat } from './shared/pipes/currency-format.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -23,13 +25,17 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { JobCreatingComponent } from './pages/job-creating/job-creating.component';
+import { JobCardComponent } from './shared/job-card/job-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     JobsComponent,
-    JobCreatingComponent
+    JobCreatingComponent,
+    JobCardComponent,
+    CurrencyFormat,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,7 @@ import { JobCreatingComponent } from './pages/job-creating/job-creating.componen
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())
   ],
-  providers: [],
+  providers: [CurrencyFormat,  DateFormatPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

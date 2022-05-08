@@ -4,5 +4,6 @@ export interface Job {
   jobCreatorEmail: string;
   salaryPerMonth: number;
   tasks: string[];
-  applicantsEmail: string[]
+  applicantsEmail: string[];
+  jobCreationTimestamp: number;
 }
