@@ -29,9 +29,9 @@ export class JobService {
     return this.afs.collection<Job>(this.collectionName).doc(id).delete();
   }
 
-
-  //Complex query
-  getJobWhichContainsUserAsApplicants(userEmail: string) {
+  // Complex query
+  // Visszatér azokkal az állásokkal amikre jelentkezett a [userEmail] felhasználó
+  getJobsWhichContainsUserAsApplicants(userEmail: string) {
     return this.afs.collection<Job>(this.collectionName, ref => ref.where('applicantsEmail','array-contains',userEmail).orderBy('date', 'asc')).valueChanges();
   }
 }

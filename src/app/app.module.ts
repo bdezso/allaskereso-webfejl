@@ -21,11 +21,15 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { JobsComponent } from './pages/jobs/jobs.component';
+import { JobCreatingComponent } from './pages/job-creating/job-creating.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    JobsComponent,
+    JobCreatingComponent
   ],
   imports: [
     BrowserModule,

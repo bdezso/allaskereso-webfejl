@@ -1,6 +1,8 @@
+import { JobsComponent } from './pages/jobs/jobs.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/services/auth.guard';
+import { JobCreatingComponent } from './pages/job-creating/job-creating.component';
 
 // lazy-loading
 const routes: Routes = [
@@ -10,8 +12,13 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'gallery',
-    loadChildren: () => import('./pages/gallery/gallery.module').then(m => m.GalleryModule),
+    path:'jobs',
+    component:JobsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'jobs_create',
+    component:JobCreatingComponent,
     canActivate: [AuthGuard]
   },
   {
