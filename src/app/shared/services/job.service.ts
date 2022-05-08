@@ -17,6 +17,7 @@ export class JobService {
     return this.afs.collection<Job>(this.collectionName).doc(job.id).set(job);
   }
 
+  //Complex query 2
   getAll() {
     return this.afs.collection<Job>(this.collectionName,ref => {
       return ref.orderBy('jobCreationTimestamp', 'desc');
