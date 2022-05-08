@@ -26,6 +26,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { JobCreatingComponent } from './pages/job-creating/job-creating.component';
 import { JobCardComponent } from './shared/job-card/job-card.component';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -35,17 +41,23 @@ import { JobCardComponent } from './shared/job-card/job-card.component';
     JobCreatingComponent,
     JobCardComponent,
     CurrencyFormat,
-    DateFormatPipe
+    DateFormatPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+
+    CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
     MatIconModule,
     FlexLayoutModule,
     MatListModule,
@@ -55,6 +67,9 @@ import { JobCardComponent } from './shared/job-card/job-card.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())
+  ],
+  exports:[
+    FormsModule,
   ],
   providers: [CurrencyFormat,  DateFormatPipe],
   bootstrap: [AppComponent]

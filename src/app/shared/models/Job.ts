@@ -3,7 +3,7 @@ export interface Job {
   jobName: string;
   jobCreatorEmail: string;
   salaryPerMonth: number;
-  tasks: string[];
+  tasks: string;
   applicantsEmail: string[];
   jobCreationTimestamp: number;
 }

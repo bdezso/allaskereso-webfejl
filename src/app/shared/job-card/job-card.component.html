@@ -2,7 +2,7 @@
 <div class = "main-container">
   Munka neve: {{job?.jobName}} <br>
   Fizetés: {{(job?.salaryPerMonth ?? 0) | currencyFormat}} <br>
-  Feladatok: {{job?.tasks?.join("\n")}} <br>
+  Feladatok: {{job?.tasks??""}} <br>
   Létrehozva: {{(job?.jobCreationTimestamp ?? 0) | dateFormat}}
 </div>
 
