@@ -15,8 +15,8 @@
           <li *ngIf="!(loggedInUser)"><a routerLink="/login">Login</a></li>
           <li *ngIf="loggedInUser"><a routerLink="/login" (click)="logout()">Logout</a></li>
           <li *ngIf="!loggedInUser"><a routerLink="/signup">Regisztráció</a></li>
-          <li><a routerLink="/jobs">Állások</a></li>
-          <li><a routerLink="/jobs_create">Állás létrehozása</a></li>
+          <li *ngIf="loggedInUser"><a routerLink="/jobs">Állások</a></li>
+          <li *ngIf="loggedInUser"><a routerLink="/jobs_create">Állás létrehozása</a></li>
           <li><a routerLink="/contact">Kapcsolat</a></li>
         </ul>
       </div>

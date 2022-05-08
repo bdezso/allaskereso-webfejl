@@ -11,11 +11,11 @@
         <mat-icon>app_registration</mat-icon>
         <span>Regisztráció</span>
     </a>
-    <a mat-list-item routerLink="/jobs" (click)="close()">
+    <a mat-list-item routerLink="/jobs" (click)="close()" *ngIf="loggedInUser">
         <mat-icon>grid_view</mat-icon>
         <span>Állások</span>
     </a>
-    <a mat-list-item routerLink="/jobs_create" (click)="close()">
+    <a mat-list-item routerLink="/jobs_create" (click)="close()" *ngIf="loggedInUser">
         <mat-icon>collections</mat-icon>
         <span>Állás létrehozása</span>
     </a>
