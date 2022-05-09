@@ -2,7 +2,23 @@
   Összesen {{ (jobs | async)?.length ?? 0}} munka van.
   <br>
   <br>
+
+  Ezekre a munkákra jelentkeztél komplexen:
+
+  <div *ngIf="jobsOfLoggedUser.length==0">
+    Te még nem jelentkeztél munkákra
+  </div>
+
+  <div *ngFor="let job of jobsOfLoggedUser">
+    <app-job-card [job] = job> </app-job-card>
+  </div>
+
+
+  <br>
+  <br>
   
+  Ez is egy komplex query orderBy-al,
+  itt látod az összes állás hirdetést
   <div *ngFor="let job of (jobs|async)">
     <app-job-card [job] = job> </app-job-card>
   </div>

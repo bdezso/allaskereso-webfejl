@@ -4,5 +4,9 @@
   Fizetés: {{(job?.salaryPerMonth ?? 0) | currencyFormat}} <br>
   Feladatok: {{job?.tasks??""}} <br>
   Létrehozva: {{(job?.jobCreationTimestamp ?? 0) | dateFormat}}
+
+  <button (click) = "onApply()">
+    Jelentkezem
+  </button>
 </div>
 
